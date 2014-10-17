@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title style="font-family: monotype corsiva; font-size: 24px;">Quiztest</title>
+  <%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js"></script>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
+<link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
+
+</head>
+<body>
+  <h1 style="text-align:center;font-family: monotype corsiva;">Welcome to Conscientia!!</h1>
+   
+	<!-- devise login controls -->
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+<!-- devise control -->
+<div class="container">
+  <%= yield %>
+</div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" style="font-family: monotype corsiva; font-size: 24px;"><b>Q_Conscientia</b></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/ideas">Ideas</a></li>
+      </ul>
+
+ <ul class="nav navbar-nav">
+        <li class="active"><a href="/questions">Create Quizzes</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/quiz/index">Answer Quizzes</a></li>
+      </ul>
+      <p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.username %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+    </div>
+  </div>
+</nav>
+<canvas id="myCanvas"></canvas>
+    <script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js"></script>
+    <script>
+var red = [0, 100, 63];
+var orange = [40, 100, 60];
+var green = [75, 100, 40];
+var blue = [196, 77, 55];
+var purple = [280, 50, 60];
+
+var myName = "Conscientia";
+var letterColors = [red, orange, green];
+if(10> 3) {
+bubbleShape = "circle";
+}
+else {
+    bubbleShape = "square";
+}
+drawName(myName, letterColors);
+bounceBubbles();
+    </script>
+</body>
+</html>

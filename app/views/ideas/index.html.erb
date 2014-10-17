@@ -1,0 +1,29 @@
+
+<div style="text-align:center; font-family: Courier; font-size: 34px">Share your knowledge. Gain More!!</div>
+<div style="text-align:center;">
+<h1 style="font-family: monotype corsiva; ">Have New Questions?</h1>
+<ul>
+  <br />
+        <p style="font-family: calibri;font-size: 24px;" >
+          <a href="/questions" >Create Quizzes</a>....</p>
+
+</ul>
+<div style="font-size: 35px;">
+<table>
+  <br />
+<% @ideas.each do |idea| %>
+  <tr>
+    <td><%= idea.name %></td>
+    <td><%= idea.question %></td>
+  <!--fecth the answers  <td><%= idea.answer %></td> -->
+    <td><%= link_to 'Show', idea %></td>
+    <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+    <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+</div>
+</div>

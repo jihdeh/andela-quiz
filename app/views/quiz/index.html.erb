@@ -1,0 +1,20 @@
+<div style= "text-align:center;">
+<h1>Start Quiz</h1>
+
+<%= form_tag({:controller => "quiz",
+				  :action => "start"}) do %>
+				  <br />
+  <p style="font-size: 35px;font-family: Courier; "><%= label_tag(:number, "How many questions do you want in the quiz?", :id => "question") %></p>
+  <br />
+  <p ><%= select_tag(:number, options_for_select((1..5).map {|x| [x, x]}), :id => "count") %> <br /></p>
+  
+  <div>
+	 <%= submit_tag "Start!", :class => "submit"%>
+  </div>
+<% end %>
+
+<% content_for(:title) do %>
+  Start Quiz
+<% end %>
+<footer>©ANDELA PROJECT. Created by team JIDBAK.</footer>
+</div>
